@@ -186,7 +186,7 @@
         <p>Phone<span style="color: red">*</span><br>
             <input type="text" size="50" ng-model="mobile_number" name="mobile_number" ng-pattern="/^[7-9][0-9]{9}$/" required>
         
-            <span style="color:red" ng-show="myForm.mobile_number.$dirty && myForm.mobile_number.$error.pattern">Invalid phone number!</span>
+            <span style="color:red" ng-show="myForm.mobile_number.$dirty && myForm.mobile_number.$error.pattern">phone number must contain 10 digits only!</span>
             <span ng-show="myForm.mobile_number.$error.required"> Phone number is required.</span>
         </p>
 </div>
