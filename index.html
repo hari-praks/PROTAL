@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+ <script src= "https://code.jquery.com/jquery-3.5.1.js"></script>
+<head>
+	<title></title>
+
+</head>
+<style type="text/css">
+	input.ng-invalid{
+		border-bottom: 3px solid red;
+		width: 30%;
+	}
+	#id1 {
+            margin-left: 30%;
+            padding: 3%;
+            margin-right: 30%;
+            margin-top: 5%;
+            text-align: center;
+        }
+	#Contact{
+		margin-left: 40%;
+		margin-top: 7%;
+	}
+	input[type=text]{
+		width: 35%;
+		height: 30px;
+		border:3px solid white;
+		border-radius: 5px;
+		box-shadow: 20px;
+		padding: 5px;
+		margin:2px;
+		font-family: arial black;
+
+
+	}
+	input[type=textbox]{
+		width: 35%;
+		height: 90px;
+		border:3px solid white;
+		border-radius: 5px;
+		box-shadow: 20px;
+		padding: 5px;
+		margin:2px;
+		font-family: arial black;
+
+	}
+	p{
+		font-size: 15px;
+		font-family: Arial black ;
+	}
+	button
+	{
+		background-color: #E1AD01;
+		color: black;
+		font-size: 20px;
+		font-family: Arial;
+		width: 25%;
+		height: 30px;
+		border: 2px solid black;
+		border-radius: 5px;
+		margin-left: 5%;
+	}
+	button:hover
+	{
+		background-color: black;
+		color: white;
+		cursor: pointer;
+	}
+
+.topnav{
+	margin-right: 5%;
+	padding: 1%;
+}
+.topnav a {
+  color:#4B0082;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+  font-size: 17px;
+  font-family: arial black;
+
+}
+
+.topnav a:hover {
+  border-bottom: 5px solid black;
+  color: red;
+}
+.image {
+	margin-top: 5%;
+  display: block;
+  width: 30%;
+  height: 25%;
+  margin-left: 5%;
+}
+.overlay {
+  position: absolute;
+  top:66.5%;
+  bottom: 0%;
+  left: 35%;
+  right: 20%;
+  background-color: #4B0082;
+  overflow: hidden;
+  width: 0;
+  height: 65%;
+  transition: .5s ease;
+}
+
+.container:hover .overlay {
+  width: 50%;
+}
+.text {
+	margin-left: 40%;
+  color: white;
+  font-size: 20px;
+  font-family: Arial sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+
+
+</style>
+<body bgcolor="#FFD800">
+<div class="topnav">
+  <a href="#Contact">Contact Us</a>
+  <a href="#about">About Us</a>
+</div>
+<div id="id1" style="margin-left: 10%; margin-right: 10%;background-color:  #4B0082">
+        <p style="font-weight:bold; font-size: 30px; color: white">#Welcome!!<br>We are glad to have you here!!</p>
+      
+      </div><br>
+<div id="about">
+<div class="container">
+  <img src="C:\Users\hari\Downloads\ProtalLogo.jpg" class="image">
+  <div class="overlay">
+    <div class="text">
+    <h2  style="font-weight:bold;font-family:inherit;">ABOUT US</h2><br>
+    <p>
+     Protal is a startup, with Pre-incubation under VITTBI.<br>
+     Protal is a Talent Producing Social Media platform for the easy showcasing of talents.<br> We aim at building a talent network, connecting people with various talents to the<br>right recruiters and opportunities.<br>
+	PROTAL is here to make a difference, helping the raw talents gain exposure and<br> experience with the right professional help.<br>
+
+	Services like Mentoring, Hiring, and Collaborating in the common fields of singing,<br> dancing, designing, photography and various other domains are our key motives<br>
+
+	At PROTAL we believe not to make any talent go waste, hence for the same, we would love to have people on our team who make it happen together with us.
+      </p>
+    </div>
+  </div>
+</div>
+</div>
+<br><br>
+<form id="Contact" ng-app="myApp" ng-controller="validateCtrl" name="myForm" ng-submit="onSubmit()">
+
+
+        <p>First name<span style="color: red">*</span><br>
+            <input type="text" size="50" name="fname" ng-model="fname" required placeholder="Enter First Name">
+            <span style="color:black" ng-show="myForm.fname.$dirty && myForm.fname.$invalid && myForm.fname.$touched">
+			<span ng-show="myForm.fname.$error.required"> First Name is required.</span>
+            </span>
+        </p>
+
+
+        <p>Last name<span style="color: red">*</span><br>
+            <input type="text" size="50" name="lname" ng-model="lname" required placeholder="Enter First Name">
+            <span style="color:black" ng-show="myForm.lname.$dirty && myForm.lname.$invalid && myForm.lname.$touched">
+<span ng-show="myForm.lname.$error.required">Last Name is required.</span>
+            </span>
+        </p>
+
+<div class="email">
+        <p>Email <span style="color: red">*</span><br>
+<input type="text" size="50" name="email" ng-model="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required>
+<span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid"></span>
+<span ng-show="myForm.email.$error.required"> Email is required.</span>
+<span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$error.pattern">Invalid email id!</span>
+        </p>
+</div>
+
+
+<div class="phone">
+        <p>Phone<span style="color: red">*</span><br>
+            <input type="text" size="50" ng-model="mobile_number" name="mobile_number" ng-pattern="/^[7-9][0-9]{9}$/" required>
+        
+            <span style="color:red" ng-show="myForm.mobile_number.$dirty && myForm.mobile_number.$error.pattern">Invalid phone number!</span>
+            <span ng-show="myForm.mobile_number.$error.required"> Phone number is required.</span>
+        </p>
+</div>
+
+
+<div class="msg">
+        <p>Message(if any)<br>
+
+            <input type="textbox" height="25" width="25%">
+
+        
+            
+</div>
+<div>
+	<input type="checkbox" name="">I agree to receive email communications from Protal
+</div>
+<br><br>
+ <button>Submit</button>
+    </form>
+
+    	<script>
+        var app = angular.module('myApp', []);
+        app.controller('validateCtrl', function($scope) {
+
+            $scope.email = 'allen@gmail.com';
+            $scope.mobile_number = '9942964088';
+
+        });
+    </script>
+</body>
+
+</html>
